@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги Шмурдяка</title>
+    <title>Услуги — Шмурдяк</title>
     <style>
-        /* Базовые настройки */
         * {
             margin: 0;
             padding: 0;
@@ -13,72 +12,74 @@
         }
 
         body {
-            background-color: #0e0e0e;
+            background-color: #0a0a0a;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             min-height: 100vh;
         }
 
         .container {
             max-width: 900px;
             width: 100%;
-            background-color: #1a1a1a;
-            padding: 35px 30px;
-            border-radius: 28px;
+            background-color: #141414;
+            padding: 40px 35px;
+            border-radius: 32px;
             border: 1px solid #2a2a2a;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
         }
 
         h1 {
             color: #ffffff;
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
             text-align: center;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .subtitle {
             color: #aaaaaa;
-            font-size: 16px;
+            font-size: 17px;
             text-align: center;
             margin-bottom: 35px;
             border-bottom: 1px solid #2a2a2a;
             padding-bottom: 18px;
+            font-weight: 300;
         }
 
         .services-grid {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 14px;
             margin-bottom: 40px;
         }
 
         .service-card {
-            background-color: #242424;
+            background-color: #1a1a1a;
             padding: 18px 22px;
             border-radius: 16px;
-            border: 1px solid #333;
-            transition: background-color 0.2s;
+            border: 1px solid #2e2e2e;
+            transition: 0.2s;
         }
 
         .service-card:hover {
-            background-color: #2c2c2c;
+            background-color: #222;
+            border-color: #444;
         }
 
         .service-name {
             color: #ffffff;
             font-size: 20px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .service-desc {
             color: #bbbbbb;
             font-size: 15px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .service-price {
@@ -91,7 +92,6 @@
             color: #dddddd;
         }
 
-        /* Секция портфолио (примеры работ) */
         .portfolio-title {
             color: #ffffff;
             font-size: 24px;
@@ -109,46 +109,54 @@
         }
 
         .work-item {
-            background-color: #1f1f1f;
+            background-color: #1a1a1a;
             border-radius: 16px;
             padding: 16px;
-            border: 1px solid #333;
+            border: 1px solid #2e2e2e;
+            transition: 0.2s;
+        }
+
+        .work-item:hover {
+            border-color: #444;
         }
 
         .work-item img {
             width: 100%;
             border-radius: 12px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #333;
             display: block;
             margin-bottom: 10px;
             background-color: #111;
         }
 
-        .work-item .work-info {
+        .work-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        .work-item .work-info .work-name {
+        .work-name {
             color: #ffffff;
             font-size: 17px;
             font-weight: 500;
         }
 
-        .work-item .work-info .work-link {
-            color: #7a9eff;
+        .work-link {
+            color: #ff6a00;
             text-decoration: none;
             font-size: 15px;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #333;
             padding: 4px 14px;
             border-radius: 30px;
             background-color: #111;
-            transition: background-color 0.2s;
+            transition: 0.2s;
         }
 
-        .work-item .work-info .work-link:hover {
-            background-color: #2a2a2a;
+        .work-link:hover {
+            background-color: #222;
+            border-color: #555;
         }
 
         .footer-note {
@@ -166,13 +174,12 @@
         }
 
         .footer-note a:hover {
-            color: #bbbbbb;
+            color: #bbb;
         }
 
-        /* Адаптация под телефон */
         @media (max-width: 600px) {
             .container {
-                padding: 20px 16px;
+                padding: 24px 16px;
             }
             h1 {
                 font-size: 26px;
@@ -180,10 +187,9 @@
             .service-card {
                 padding: 14px 16px;
             }
-            .work-item .work-info {
+            .work-info {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
             }
         }
     </style>
@@ -193,66 +199,65 @@
 <div class="container">
 
     <h1>🛠️ Услуги Шмурдяка</h1>
-    <div class="subtitle">Сайты · Виджеты для OBS · Настройка стрима</div>
+    <div class="subtitle">Сайты · Виджеты · Настройка OBS</div>
 
-    <!-- Список услуг -->
     <div class="services-grid">
-
         <div class="service-card">
             <div class="service-name">Сайт-визитка</div>
             <div class="service-desc">Страница с твоими контактами, ссылками и краткой информацией о тебе.</div>
             <div class="service-price">от <span>3 500 ₽</span></div>
         </div>
-
         <div class="service-card">
             <div class="service-name">Виджет погоды для OBS</div>
             <div class="service-desc">Красивый виджет с температурой, иконкой и описанием. Автообновление.</div>
             <div class="service-price">от <span>1 500 ₽</span></div>
         </div>
-
         <div class="service-card">
-            <div class="service-name">Настройка OBS под стримера</div>
+            <div class="service-name">Настройка OBS</div>
             <div class="service-desc">Настройка источников, виджетов, звука и оформления для твоего стрима.</div>
             <div class="service-price">от <span>1 000 ₽</span></div>
         </div>
-
         <div class="service-card">
             <div class="service-name">Индивидуальный заказ</div>
-            <div class="service-desc">Всё, что ты не нашёл выше. Опиши задачу — я скажу, что можно сделать.</div>
+            <div class="service-desc">Всё, что не вошло в список. Опиши задачу — я скажу, что можно сделать.</div>
             <div class="service-price">по договорённости</div>
         </div>
-
     </div>
 
-    <!-- ПРИМЕРЫ РАБОТ (портфолио) -->
     <div class="portfolio-title">📁 Примеры работ</div>
-
     <div class="portfolio-grid">
 
+        <!-- ЗАГОТОВКА 1 -->
         <div class="work-item">
-            <img src="https://raw.githubusercontent.com/AlexUnikum/shmurdyak-services/main/site.png" alt="Скриншот сайта">
+            <img src="https://raw.githubusercontent.com/AlexUnikum/images/main/shmurdyaknew.png" alt="Проект 1">
             <div class="work-info">
-                <span class="work-name">Сайт-визитка Шмурдяка</span>
-                <a href="https://AlexUnikum.github.io/shmurdyak/" target="_blank" class="work-link">Посмотреть →</a>
+                <span class="work-name">Моя новая визитка.</span>
+                <a href="#" target="_blank" class="work-link">Посмотреть →</a>
             </div>
         </div>
 
-        <!--
-        👇 КОПИРУЙ ЭТОТ БЛОК ДЛЯ КАЖДОЙ НОВОЙ РАБОТЫ
+        <!-- ЗАГОТОВКА 2 -->
         <div class="work-item">
-            <img src="ССЫЛКА_НА_СКРИНШОТ" alt="Название работы">
+            <img src="https://raw.githubusercontent.com/AlexUnikum/images/main/shmurdyakfaq.png" alt="Проект 2">
             <div class="work-info">
-                <span class="work-name">Название проекта</span>
-                <a href="ССЫЛКА_НА_ГОТОВЫЙ_САЙТ" target="_blank" class="work-link">Посмотреть →</a>
+                <span class="work-name">Мой сайт с FAQ. Там же ты можешь узнать ответы на возможные вопросы.</span>
+                <a href="#" target="_blank" class="work-link">Посмотреть →</a>
             </div>
         </div>
-        -->
+
+        <!-- ЗАГОТОВКА 3 -->
+        <div class="work-item">
+            <img src="https://raw.githubusercontent.com/AlexUnikum/images/main/shmurdyakold.png" alt="Проект 3">
+            <div class="work-info">
+                <span class="work-name">Моя старая визитка.</span>
+                <a href="#" target="_blank" class="work-link">Посмотреть →</a>
+            </div>
+        </div>
 
     </div>
 
-    <!-- Подвал -->
     <div class="footer-note">
-        <p>Сделано <a href="https://AlexUnikum.github.io/shmurdyak/">Шмурдяком</a> — все работы индивидуальны</p>
+        <p>Сделано <a href="https://alexunikum.github.io/shmurdyak/" target="_blank">Шмурдяком</a> — все работы индивидуальны</p>
     </div>
 
 </div>
