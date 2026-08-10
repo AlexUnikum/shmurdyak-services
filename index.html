@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Услуги — Шмурдяк</title>
     <style>
         * {
@@ -21,10 +21,10 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
             background-color: #141414;
-            padding: 40px 35px;
+            padding: 44px 40px;
             border-radius: 32px;
             border: 1px solid #2a2a2a;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
@@ -32,135 +32,231 @@
 
         h1 {
             color: #ffffff;
-            font-size: 34px;
+            font-size: 36px;
             font-weight: 700;
             text-align: center;
             letter-spacing: 1px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .subtitle {
             color: #aaaaaa;
-            font-size: 17px;
+            font-size: 18px;
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 38px;
             border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 18px;
+            padding-bottom: 20px;
             font-weight: 300;
         }
 
         .services-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-bottom: 48px;
         }
 
         .service-card {
             background-color: #1a1a1a;
-            padding: 18px 22px;
-            border-radius: 16px;
+            padding: 22px 20px 20px;
+            border-radius: 20px;
             border: 1px solid #2e2e2e;
-            transition: 0.2s;
+            transition: 0.25s ease;
         }
 
         .service-card:hover {
             background-color: #222;
-            border-color: #444;
+            border-color: #555;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.04);
+        }
+
+        .service-icon {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .service-name {
             color: #ffffff;
             font-size: 20px;
             font-weight: 600;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
         .service-desc {
             color: #bbbbbb;
-            font-size: 15px;
-            margin-bottom: 6px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
         }
 
         .service-price {
             color: #8f8f8f;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
         }
 
         .service-price span {
-            color: #dddddd;
+            color: #ffffff;
+            font-weight: 600;
         }
 
-        .portfolio-title {
+        .section-title {
             color: #ffffff;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 600;
             margin-top: 10px;
-            margin-bottom: 18px;
+            margin-bottom: 24px;
             border-top: 1px solid #2a2a2a;
-            padding-top: 30px;
+            padding-top: 34px;
+            text-align: center;
         }
 
-        .portfolio-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            margin-bottom: 44px;
         }
 
-        .work-item {
+        .why-item {
             background-color: #1a1a1a;
-            border-radius: 16px;
-            padding: 16px;
+            border-radius: 18px;
+            padding: 20px 16px;
+            text-align: center;
             border: 1px solid #2e2e2e;
             transition: 0.2s;
         }
 
-        .work-item:hover {
+        .why-item:hover {
             border-color: #444;
+            background-color: #202020;
         }
 
-        .work-item img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid #333;
+        .why-item .emoji {
+            font-size: 32px;
             display: block;
-            margin-bottom: 10px;
-            background-color: #111;
+            margin-bottom: 6px;
         }
 
-        .work-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .work-name {
+        .why-item h3 {
             color: #ffffff;
-            font-size: 17px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 600;
         }
 
-        .work-link {
-            color: #ff6a00;
-            text-decoration: none;
-            font-size: 15px;
-            border: 1px solid #333;
-            padding: 4px 14px;
-            border-radius: 30px;
-            background-color: #111;
+        .why-item p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 18px;
+            margin-bottom: 44px;
+        }
+
+        .step {
+            background-color: #1a1a1a;
+            border-radius: 18px;
+            padding: 18px 16px;
+            border: 1px solid #2e2e2e;
+            text-align: center;
             transition: 0.2s;
         }
 
-        .work-link:hover {
-            background-color: #222;
+        .step:hover {
+            border-color: #444;
+            background-color: #202020;
+        }
+
+        .step .num {
+            color: #ff6a00;
+            font-size: 28px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .step h4 {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 4px 0 2px;
+        }
+
+        .step p {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .faq-block {
+            background-color: #1a1a1a;
+            border-radius: 20px;
+            padding: 24px 28px;
+            border: 1px solid #2e2e2e;
+            text-align: center;
+            margin-bottom: 40px;
+            transition: 0.2s;
+        }
+
+        .faq-block:hover {
             border-color: #555;
+            background-color: #202020;
+        }
+
+        .faq-block p {
+            color: #dddddd;
+            font-size: 17px;
+        }
+
+        .faq-block a {
+            color: #ff6a00;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dashed #ff6a00;
+        }
+
+        .faq-block a:hover {
+            border-bottom: 1px solid #ff6a00;
+        }
+
+        .contacts {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contacts .label {
+            color: #aaaaaa;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contacts .links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px 28px;
+        }
+
+        .contacts a {
+            color: #dddddd;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contacts a:hover {
+            color: #ff6a00;
+            border-bottom: 1px solid #ff6a00;
         }
 
         .footer-note {
-            margin-top: 40px;
+            margin-top: 30px;
             text-align: center;
             color: #666;
             font-size: 14px;
@@ -179,17 +275,22 @@
 
         @media (max-width: 600px) {
             .container {
-                padding: 24px 16px;
+                padding: 22px 16px;
             }
             h1 {
                 font-size: 26px;
             }
-            .service-card {
-                padding: 14px 16px;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
-            .work-info {
-                flex-direction: column;
-                align-items: flex-start;
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            .faq-block {
+                padding: 18px 16px;
             }
         }
     </style>
@@ -199,62 +300,102 @@
 <div class="container">
 
     <h1>🛠️ Услуги Шмурдяка</h1>
-    <div class="subtitle">Сайты · Виджеты · Настройка OBS</div>
+    <div class="subtitle">Сайты · Вывески · Реклама · Дизайн</div>
 
     <div class="services-grid">
+
         <div class="service-card">
+            <span class="service-icon">🌐</span>
             <div class="service-name">Сайт-визитка</div>
-            <div class="service-desc">Страница с твоими контактами, ссылками и краткой информацией о тебе.</div>
+            <div class="service-desc">Одностраничный сайт с твоими контактами, ссылками и краткой информацией о тебе или твоём деле.</div>
             <div class="service-price">от <span>3 500 ₽</span></div>
         </div>
+
         <div class="service-card">
-            <div class="service-name">Виджет погоды для OBS</div>
-            <div class="service-desc">Красивый виджет с температурой, иконкой и описанием. Автообновление.</div>
+            <span class="service-icon">📄</span>
+            <div class="service-name">Лендинг</div>
+            <div class="service-desc">Полноценная посадочная страница для товара, услуги или мероприятия. С секциями, кнопками и формами.</div>
+            <div class="service-price">от <span>6 000 ₽</span></div>
+        </div>
+
+        <div class="service-card">
+            <span class="service-icon">🪧</span>
+            <div class="service-name">Вывески</div>
+            <div class="service-desc">Дизайн наружных и внутренних вывесок для магазинов, офисов, кафе. Световые или статичные варианты.</div>
+            <div class="service-price">от <span>2 500 ₽</span></div>
+        </div>
+
+        <div class="service-card">
+            <span class="service-icon">🖼️</span>
+            <div class="service-name">Статичная реклама</div>
+            <div class="service-desc">Баннеры, листовки, флаеры, плакаты, меню, афиши — всё, что можно распечатать или разместить в интернете.</div>
             <div class="service-price">от <span>1 500 ₽</span></div>
         </div>
+
         <div class="service-card">
-            <div class="service-name">Настройка OBS</div>
-            <div class="service-desc">Настройка источников, виджетов, звука и оформления для твоего стрима.</div>
-            <div class="service-price">от <span>1 000 ₽</span></div>
-        </div>
-        <div class="service-card">
+            <span class="service-icon">🎯</span>
             <div class="service-name">Индивидуальный заказ</div>
-            <div class="service-desc">Всё, что не вошло в список. Опиши задачу — я скажу, что можно сделать.</div>
+            <div class="service-desc">Всё, что не вошло в список. Опиши задачу — я скажу, что могу сделать и за сколько.</div>
             <div class="service-price">по договорённости</div>
         </div>
-    </div>
 
-    <div class="portfolio-title">📁 Примеры работ</div>
-    <div class="portfolio-grid">
-
-        <!-- ЗАГОТОВКА 1 -->
-        <div class="work-item">
-            <img src="https://raw.githubusercontent.com/AlexUnikum/images/main/shmurdyaknew.png" alt="Проект 1">
-            <div class="work-info">
-                <span class="work-name">Моя новая визитка.</span>
-                <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank" class="work-link">Посмотреть →</a>
-            </div>
-        </div>
-
-        <!-- ЗАГОТОВКА 2 -->
-        <div class="work-item">
-            <img src="https://raw.githubusercontent.com/AlexUnikum/images/main/faqnew.png" alt="Проект 2">
-            <div class="work-info">
-                <span class="work-name">Мой сайт с FAQ. Там же ты можешь узнать ответы на возможные вопросы.</span>
-                <a href="https://alexunikum.github.io/faq/" target="_blank" class="work-link">Посмотреть →</a>
-            </div>
-        </div>
-
-        <!-- ЗАГОТОВКА 3 -->
-        <div class="work-item">
-            <img src="https://raw.githubusercontent.com/AlexUnikum/images/main/shmurdyakold.png" alt="Проект 3">
-            <div class="work-info">
-                <span class="work-name">Моя старая визитка.</span>
-                <a href="https://alexunikum.github.io/shmurdyak/" target="_blank" class="work-link">Посмотреть →</a>
-            </div>
+        <div class="service-card">
+            <span class="service-icon">🧩</span>
+            <div class="service-name">Доработка / рефакторинг</div>
+            <div class="service-desc">Правка чужого кода, доработка вёрстки, улучшение дизайна или адаптива под мобильные устройства.</div>
+            <div class="service-price">от <span>1 500 ₽</span></div>
         </div>
 
     </div>
+
+    <div class="section-title">🔥 Почему я</div>
+    <div class="why-grid">
+        <div class="why-item">
+            <span class="emoji">⚡</span>
+            <h3>Быстро</h3>
+            <p>Работаю в своём темпе, без затягивания. Сайт-визитка может быть готова за пару часов.</p>
+        </div>
+        <div class="why-item">
+            <span class="emoji">💰</span>
+            <h3>Дёшево</h3>
+            <p>Я начинающий кодер, поэтому мои цены ниже рынка. Качество при этом не страдает.</p>
+        </div>
+        <div class="why-item">
+            <span class="emoji">🧠</span>
+            <h3>Индивидуально</h3>
+            <p>Каждый проект обсуждается лично. Нет шаблонов — только то, что нужно именно тебе.</p>
+        </div>
+    </div>
+
+    <div class="section-title">📋 Как заказать</div>
+    <div class="steps">
+        <div class="step">
+            <span class="num">1</span>
+            <h4>Напиши</h4>
+            <p>Опиши свою идею в Discord, Telegram или любым другим удобным способом.</p>
+        </div>
+        <div class="step">
+            <span class="num">2</span>
+            <h4>Обсудим</h4>
+            <p>Уточню детали, сроки, цену. Скажу, что можно сделать, а что нет.</p>
+        </div>
+        <div class="step">
+            <span class="num">3</span>
+            <h4>Сделаю</h4>
+            <p>Разрабатываю макет / код, показываю результат, довожу до идеала.</p>
+        </div>
+    </div>
+
+    <div class="faq-block">
+        <p>❓ Остались вопросы? Загляни в <a href="https://alexunikum.github.io/faq/" target="_blank">FAQ</a> — там ответы на всё, что обычно спрашивают.</p>
+    </div>
+
+    <div class="contacts">
+    <span class="label">📇 Все контакты — на главной визитке</span>
+    <div class="links">
+        <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Перейти →</a>
+    </div>
+</div>
 
     <div class="footer-note">
         <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Шмурдяком</a> — все работы индивидуальны</p>
