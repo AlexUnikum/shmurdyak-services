@@ -2,8 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Услуги — Шмурдяк</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Услуги · Шмурдяк</title>
     <style>
         * {
             margin: 0;
@@ -12,43 +12,81 @@
         }
 
         body {
-            background-color: #0a0a0a;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 40%, #1a1a2e, #0a0a0a 80%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px 20px;
         }
 
-        .container {
+        .glass {
             max-width: 1000px;
             width: 100%;
-            background-color: #141414;
+            background: rgba(20, 20, 30, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 48px;
             padding: 44px 40px;
-            border-radius: 32px;
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 106, 0, 0.06);
+            opacity: 0;
+            animation: fadeGlass 0.9s ease forwards;
+        }
+
+        @keyframes fadeGlass {
+            0% {
+                opacity: 0;
+                transform: scale(0.96) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         h1 {
-            color: #ffffff;
-            font-size: 36px;
-            font-weight: 700;
             text-align: center;
+            font-size: 34px;
+            font-weight: 700;
+            color: #ffffff;
             letter-spacing: 1px;
             margin-bottom: 4px;
         }
 
         .subtitle {
-            color: #aaaaaa;
-            font-size: 18px;
             text-align: center;
-            margin-bottom: 38px;
-            border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 20px;
+            font-size: 17px;
             font-weight: 300;
+            color: #aaaaaa;
+            margin-bottom: 36px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding-bottom: 18px;
         }
 
+        .subtitle span {
+            color: #ff6a00;
+            font-weight: 500;
+        }
+
+        /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
+        .fade-item {
+            opacity: 0;
+            animation: fadeUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== СЕТКА УСЛУГ ===== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -57,18 +95,17 @@
         }
 
         .service-card {
-            background-color: #1a1a1a;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
             padding: 22px 20px 20px;
-            border-radius: 20px;
-            border: 1px solid #2e2e2e;
             transition: 0.25s ease;
         }
 
         .service-card:hover {
-            background-color: #222;
-            border-color: #555;
+            border-color: rgba(255, 106, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.04);
         }
 
         .service-icon {
@@ -102,13 +139,14 @@
             font-weight: 600;
         }
 
+        /* ===== РАЗДЕЛЫ ===== */
         .section-title {
             color: #ffffff;
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 600;
             margin-top: 10px;
             margin-bottom: 24px;
-            border-top: 1px solid #2a2a2a;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
             padding-top: 34px;
             text-align: center;
         }
@@ -121,17 +159,17 @@
         }
 
         .why-item {
-            background-color: #1a1a1a;
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
             padding: 20px 16px;
             text-align: center;
-            border: 1px solid #2e2e2e;
-            transition: 0.2s;
+            transition: 0.25s ease;
         }
 
         .why-item:hover {
-            border-color: #444;
-            background-color: #202020;
+            border-color: rgba(255, 106, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .why-item .emoji {
@@ -159,17 +197,17 @@
         }
 
         .step {
-            background-color: #1a1a1a;
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
             padding: 18px 16px;
-            border: 1px solid #2e2e2e;
             text-align: center;
-            transition: 0.2s;
+            transition: 0.25s ease;
         }
 
         .step:hover {
-            border-color: #444;
-            background-color: #202020;
+            border-color: rgba(255, 106, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .step .num {
@@ -191,34 +229,35 @@
             font-size: 13px;
         }
 
-        .faq-block {
-            background-color: #1a1a1a;
-            border-radius: 20px;
+        /* ===== CTA ===== */
+        .cta-block {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
             padding: 24px 28px;
-            border: 1px solid #2e2e2e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
             margin-bottom: 40px;
-            transition: 0.2s;
+            transition: 0.25s ease;
         }
 
-        .faq-block:hover {
-            border-color: #555;
-            background-color: #202020;
+        .cta-block:hover {
+            border-color: rgba(255, 106, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .faq-block p {
+        .cta-block p {
             color: #dddddd;
             font-size: 17px;
         }
 
-        .faq-block a {
+        .cta-block a {
             color: #ff6a00;
             font-weight: 600;
             text-decoration: none;
             border-bottom: 1px dashed #ff6a00;
         }
 
-        .faq-block a:hover {
+        .cta-block a:hover {
             border-bottom: 1px solid #ff6a00;
         }
 
@@ -255,27 +294,28 @@
             border-bottom: 1px solid #ff6a00;
         }
 
-        .footer-note {
-            margin-top: 30px;
+        .footer {
+            margin-top: 32px;
             text-align: center;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid #222;
-            padding-top: 22px;
+            font-size: 13px;
+            color: #555;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 20px;
         }
 
-        .footer-note a {
-            color: #888;
+        .footer a {
+            color: #777;
             text-decoration: none;
+            transition: 0.2s;
         }
 
-        .footer-note a:hover {
-            color: #bbb;
+        .footer a:hover {
+            color: #aaa;
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 22px 16px;
+            .glass {
+                padding: 24px 16px;
             }
             h1 {
                 font-size: 26px;
@@ -289,119 +329,124 @@
             .steps {
                 grid-template-columns: 1fr;
             }
-            .faq-block {
-                padding: 18px 16px;
-            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <div class="glass">
 
-    <h1>🛠️ Услуги Шмурдяка</h1>
-    <div class="subtitle">Сайты · Вывески · Реклама · Дизайн</div>
+        <h1>🛠️ Услуги Шмурдяка</h1>
+        <div class="subtitle">Сайты · Вывески · Реклама · <span>Всё под ключ</span></div>
 
-    <div class="services-grid">
+        <!-- ===== СЕТКА УСЛУГ ===== -->
+        <div class="services-grid">
 
-        <div class="service-card">
-            <span class="service-icon">🌐</span>
-            <div class="service-name">Сайт-визитка</div>
-            <div class="service-desc">Одностраничный сайт с твоими контактами, ссылками и краткой информацией о тебе или твоём деле.</div>
-            <div class="service-price">от <span>3 500 ₽</span></div>
+            <div class="service-card fade-item" style="animation-delay: 0.1s;">
+                <span class="service-icon">🌐</span>
+                <div class="service-name">Сайт-визитка</div>
+                <div class="service-desc">Одностраничный сайт с твоими контактами, ссылками и краткой информацией.</div>
+                <div class="service-price">от <span>3 500 ₽</span></div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.2s;">
+                <span class="service-icon">📄</span>
+                <div class="service-name">Лендинг</div>
+                <div class="service-desc">Посадочная страница для товара, услуги или мероприятия. С секциями, кнопками и формами.</div>
+                <div class="service-price">от <span>6 000 ₽</span></div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.3s;">
+                <span class="service-icon">🪧</span>
+                <div class="service-name">Вывески</div>
+                <div class="service-desc">Дизайн наружных и внутренних вывесок для магазинов, офисов, кафе. Световые или статичные варианты.</div>
+                <div class="service-price">от <span>2 500 ₽</span></div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.4s;">
+                <span class="service-icon">🖼️</span>
+                <div class="service-name">Статичная реклама</div>
+                <div class="service-desc">Баннеры, листовки, флаеры, плакаты — всё, что можно распечатать или разместить в интернете.</div>
+                <div class="service-price">от <span>1 500 ₽</span></div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.5s;">
+                <span class="service-icon">🎯</span>
+                <div class="service-name">Индивидуальный заказ</div>
+                <div class="service-desc">Всё, что не вошло в список. Опиши задачу — я скажу, что могу сделать.</div>
+                <div class="service-price">по договорённости</div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.6s;">
+                <span class="service-icon">🧩</span>
+                <div class="service-name">Доработка кода</div>
+                <div class="service-desc">Правка вёрстки, дизайна, адаптива. Только при наличии прав на код у заказчика.</div>
+                <div class="service-price">от <span>1 500 ₽</span></div>
+            </div>
+
         </div>
 
-        <div class="service-card">
-            <span class="service-icon">📄</span>
-            <div class="service-name">Лендинг</div>
-            <div class="service-desc">Полноценная посадочная страница для товара, услуги или мероприятия. С секциями, кнопками и формами.</div>
-            <div class="service-price">от <span>6 000 ₽</span></div>
+        <!-- ===== ПОЧЕМУ Я ===== -->
+        <div class="section-title fade-item" style="animation-delay: 0.7s;">🔥 Почему я</div>
+
+        <div class="why-grid">
+            <div class="why-item fade-item" style="animation-delay: 0.75s;">
+                <span class="emoji">⚡</span>
+                <h3>Быстро</h3>
+                <p>Работаю в своём темпе, без затягивания. Сайт-визитка может быть готова за пару часов.</p>
+            </div>
+            <div class="why-item fade-item" style="animation-delay: 0.8s;">
+                <span class="emoji">💰</span>
+                <h3>Дёшево</h3>
+                <p>Я начинающий кодер, поэтому мои цены ниже рынка. Качество при этом не страдает.</p>
+            </div>
+            <div class="why-item fade-item" style="animation-delay: 0.85s;">
+                <span class="emoji">🧠</span>
+                <h3>Индивидуально</h3>
+                <p>Каждый проект обсуждается лично. Нет шаблонов — только то, что нужно именно тебе.</p>
+            </div>
         </div>
 
-        <div class="service-card">
-            <span class="service-icon">🪧</span>
-            <div class="service-name">Вывески</div>
-            <div class="service-desc">Дизайн наружных и внутренних вывесок для магазинов, офисов, кафе. Световые или статичные варианты.</div>
-            <div class="service-price">от <span>2 500 ₽</span></div>
+        <!-- ===== КАК ЗАКАЗАТЬ ===== -->
+        <div class="section-title fade-item" style="animation-delay: 0.9s;">📋 Как заказать</div>
+
+        <div class="steps">
+            <div class="step fade-item" style="animation-delay: 0.95s;">
+                <span class="num">1</span>
+                <h4>Напиши</h4>
+                <p>Опиши свою идею в Telegram или любым доступным способом на визитке.</p>
+            </div>
+            <div class="step fade-item" style="animation-delay: 1s;">
+                <span class="num">2</span>
+                <h4>Обсудим</h4>
+                <p>Уточню детали, сроки, цену. Скажу что можно сделать, а что нет.</p>
+            </div>
+            <div class="step fade-item" style="animation-delay: 1.05s;">
+                <span class="num">3</span>
+                <h4>Сделаю</h4>
+                <p>Разрабатываю, показываю, довожу до идеала.</p>
+            </div>
         </div>
 
-        <div class="service-card">
-            <span class="service-icon">🖼️</span>
-            <div class="service-name">Статичная реклама</div>
-            <div class="service-desc">Баннеры, листовки, флаеры, плакаты, меню, афиши — всё, что можно распечатать или разместить в интернете.</div>
-            <div class="service-price">от <span>1 500 ₽</span></div>
+        <!-- ===== CTA ===== -->
+        <div class="cta-block fade-item" style="animation-delay: 1.1s;">
+            <p>❓ Остались вопросы? Загляни в <a href="https://alexunikum.github.io/faq/" target="_blank">FAQ</a> — там ответы на всё.</p>
         </div>
 
-        <div class="service-card">
-            <span class="service-icon">🎯</span>
-            <div class="service-name">Индивидуальный заказ</div>
-            <div class="service-desc">Всё, что не вошло в список. Опиши задачу — я скажу, что могу сделать и за сколько.</div>
-            <div class="service-price">по договорённости</div>
+        <!-- ===== КОНТАКТЫ ===== -->
+        <div class="contacts fade-item" style="animation-delay: 1.15s;">
+            <span class="label">✉️ Связаться со Шмурдяком</span>
+            <div class="links">
+                <a href="https://t.me/Shprotina109" target="_blank">Telegram</a>
+            </div>
         </div>
 
-        <div class="service-card">
-            <span class="service-icon">🧩</span>
-            <div class="service-name">Доработка / рефакторинг</div>
-            <div class="service-desc">Правка чужого кода, доработка вёрстки, улучшение дизайна или адаптива под мобильные устройства.</div>
-            <div class="service-price">от <span>1 500 ₽</span></div>
+        <!-- ===== ФУТЕР ===== -->
+        <div class="footer fade-item" style="animation-delay: 1.2s;">
+            <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Шмурдяком</a> — все работы индивидуальны</p>
         </div>
 
     </div>
-
-    <div class="section-title">🔥 Почему я</div>
-    <div class="why-grid">
-        <div class="why-item">
-            <span class="emoji">⚡</span>
-            <h3>Быстро</h3>
-            <p>Работаю в своём темпе, без затягивания. Сайт-визитка может быть готова за пару часов.</p>
-        </div>
-        <div class="why-item">
-            <span class="emoji">💰</span>
-            <h3>Дёшево</h3>
-            <p>Я начинающий кодер, поэтому мои цены ниже рынка. Качество при этом не страдает.</p>
-        </div>
-        <div class="why-item">
-            <span class="emoji">🧠</span>
-            <h3>Индивидуально</h3>
-            <p>Каждый проект обсуждается лично. Нет шаблонов — только то, что нужно именно тебе.</p>
-        </div>
-    </div>
-
-    <div class="section-title">📋 Как заказать</div>
-    <div class="steps">
-        <div class="step">
-            <span class="num">1</span>
-            <h4>Напиши</h4>
-            <p>Опиши свою идею в Discord, Telegram или любым другим удобным способом.</p>
-        </div>
-        <div class="step">
-            <span class="num">2</span>
-            <h4>Обсудим</h4>
-            <p>Уточню детали, сроки, цену. Скажу, что можно сделать, а что нет.</p>
-        </div>
-        <div class="step">
-            <span class="num">3</span>
-            <h4>Сделаю</h4>
-            <p>Разрабатываю макет / код, показываю результат, довожу до идеала.</p>
-        </div>
-    </div>
-
-    <div class="faq-block">
-        <p>❓ Остались вопросы? Загляни в <a href="https://alexunikum.github.io/faq/" target="_blank">FAQ</a> — там ответы на всё, что обычно спрашивают.</p>
-    </div>
-
-    <div class="contacts">
-    <span class="label">📇 Все контакты — на главной визитке</span>
-    <div class="links">
-        <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Перейти →</a>
-    </div>
-</div>
-
-    <div class="footer-note">
-        <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank">Шмурдяком</a> — все работы индивидуальны</p>
-    </div>
-
-</div>
 
 </body>
 </html>
