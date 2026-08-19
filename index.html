@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Услуги · Шмурдяк</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <style>
         * {
             margin: 0;
@@ -15,79 +15,109 @@
         body {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background: radial-gradient(circle at 30% 40%, #1a1a2e, #0a0a0a 80%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            align-items: center;
+            background: #080606;
+            font-family: 'Segoe UI', system-ui, sans-serif;
             padding: 40px 20px;
-        }
-
-        .glass {
-            max-width: 1000px;
-            width: 100%;
-            background: rgba(20, 20, 30, 0.65);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 48px;
-            padding: 44px 40px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 106, 0, 0.06);
-            opacity: 0;
-            animation: fadeGlass 0.9s ease forwards;
-        }
-
-        @keyframes fadeGlass {
-            0% {
-                opacity: 0;
-                transform: scale(0.96) translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 34px;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-size: 17px;
-            font-weight: 300;
-            color: #aaaaaa;
-            margin-bottom: 36px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            padding-bottom: 18px;
-        }
-
-        .subtitle span {
-            color: #ff6a00;
-            font-weight: 500;
-        }
-
-        /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
-        .fade-item {
-            opacity: 0;
-            animation: fadeUp 0.5s ease forwards;
+            color: #ddd;
+            background-image: radial-gradient(ellipse at 20% 40%, #1a0e0c, #080606 90%);
         }
 
         @keyframes fadeUp {
             0% {
                 opacity: 0;
-                transform: translateY(14px);
+                transform: translateY(18px) scale(0.97);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
-        /* ===== СЕТКА УСЛУГ ===== */
+        .fade-item {
+            opacity: 0;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .wrap {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #1e1210;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #eee;
+        }
+
+        .logo span {
+            color: #ff3b00;
+            text-shadow: 0 0 40px rgba(255, 59, 0, 0.6), 0 0 80px rgba(255, 59, 0, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav a {
+            color: #7a6a6a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav a:hover {
+            color: #ff3b00;
+            border-bottom-color: #ff3b00;
+            text-shadow: 0 0 20px rgba(255, 59, 0, 0.2);
+        }
+
+        .content {
+            margin-top: 36px;
+        }
+
+        .content h1 {
+            font-size: 34px;
+            font-weight: 800;
+            color: #f0e0e0;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .content h1 span {
+            color: #ff3b00;
+            text-shadow: 0 0 40px rgba(255, 59, 0, 0.4);
+        }
+
+        .content .sub {
+            font-size: 17px;
+            color: #b0a0a0;
+            font-weight: 300;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #1a0e0c;
+            padding-bottom: 16px;
+        }
+
+        .content .sub span {
+            color: #ff3b00;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -96,61 +126,66 @@
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
+            background: rgba(14, 10, 10, 0.6);
+            border: 1px solid #1e1210;
             padding: 22px 20px 20px;
-            transition: 0.3s ease;
+            border-radius: 12px;
+            transition: 0.3s;
+            backdrop-filter: blur(2px);
         }
 
         .service-card:hover {
-            border-color: rgba(255, 106, 0, 0.15);
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-8px);
-             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            border-color: #ff3b00;
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.06);
+            transform: translateY(-4px);
         }
 
-        .service-icon {
+        .service-card .icon {
             font-size: 32px;
             display: block;
             margin-bottom: 8px;
         }
 
-        .service-name {
-            color: #ffffff;
+        .service-card .name {
+            color: #f0e0e0;
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 4px;
         }
 
-        .service-desc {
-            color: #bbbbbb;
+        .service-card .desc {
+            color: #b0a0a0;
             font-size: 14px;
             line-height: 1.5;
             margin-bottom: 10px;
         }
 
-        .service-price {
-            color: #8f8f8f;
+        .service-card .price {
+            color: #8a7a7a;
             font-size: 15px;
             font-weight: 500;
         }
 
-        .service-price span {
-            color: #ffffff;
+        .service-card .price span {
+            color: #ff3b00;
             font-weight: 600;
+            text-shadow: 0 0 20px rgba(255, 59, 0, 0.1);
         }
 
-        /* ===== РАЗДЕЛЫ ===== */
         .section-title {
-            color: #ffffff;
+            color: #f0e0e0;
             font-size: 22px;
-            font-weight: 600;
+            font-weight: 700;
             margin-top: 10px;
             margin-bottom: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid #1a0e0c;
             padding-top: 34px;
             text-align: center;
+        }
+
+        .section-title span {
+            color: #ff3b00;
+            text-shadow: 0 0 30px rgba(255, 59, 0, 0.2);
         }
 
         .why-grid {
@@ -161,19 +196,19 @@
         }
 
         .why-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            background: rgba(14, 10, 10, 0.6);
+            border: 1px solid #1e1210;
             padding: 20px 16px;
             text-align: center;
-            transition: 0.3s ease;
+            border-radius: 12px;
+            transition: 0.3s;
+            backdrop-filter: blur(2px);
         }
 
         .why-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 106, 0, 0.15);
-            background: rgba(255, 255, 255, 0.05);
+            border-color: #ff3b00;
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.06);
+            transform: translateY(-4px);
         }
 
         .why-item .emoji {
@@ -183,13 +218,13 @@
         }
 
         .why-item h3 {
-            color: #ffffff;
+            color: #f0e0e0;
             font-size: 18px;
             font-weight: 600;
         }
 
         .why-item p {
-            color: #aaa;
+            color: #b0a0a0;
             font-size: 14px;
         }
 
@@ -201,72 +236,71 @@
         }
 
         .step {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
+            background: rgba(14, 10, 10, 0.6);
+            border: 1px solid #1e1210;
             padding: 18px 16px;
             text-align: center;
-            transition: 0.3s ease;
+            border-radius: 12px;
+            transition: 0.3s;
+            backdrop-filter: blur(2px);
         }
 
         .step:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 106, 0, 0.15);
-            background: rgba(255, 255, 255, 0.05);
+            border-color: #ff3b00;
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.06);
+            transform: translateY(-4px);
         }
 
         .step .num {
-            color: #ff6a00;
+            color: #ff3b00;
             font-size: 28px;
             font-weight: 700;
             display: block;
+            text-shadow: 0 0 30px rgba(255, 59, 0, 0.2);
         }
 
         .step h4 {
-            color: #ffffff;
+            color: #f0e0e0;
             font-size: 16px;
             font-weight: 600;
             margin: 4px 0 2px;
         }
 
         .step p {
-            color: #aaa;
+            color: #b0a0a0;
             font-size: 13px;
         }
 
-        /* ===== CTA ===== */
         .cta-block {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
+            background: rgba(14, 10, 10, 0.6);
+            border: 1px solid #1e1210;
+            border-radius: 12px;
             padding: 24px 28px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
+            transition: 0.3s;
+            backdrop-filter: blur(2px);
             margin-bottom: 40px;
-            transition: 0.3s ease;
         }
 
         .cta-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 106, 0, 0.15);
-            background: rgba(255, 255, 255, 0.05);
+            border-color: #ff3b00;
+            box-shadow: 0 0 30px rgba(255, 59, 0, 0.06);
         }
 
         .cta-block p {
-            color: #dddddd;
+            color: #ddd;
             font-size: 17px;
         }
 
         .cta-block a {
-            color: #ff6a00;
+            color: #ff3b00;
             font-weight: 600;
             text-decoration: none;
-            border-bottom: 1px dashed #ff6a00;
+            border-bottom: 1px dashed #ff3b00;
         }
 
         .cta-block a:hover {
-            border-bottom: 1px solid #ff6a00;
+            border-bottom: 1px solid #ff3b00;
         }
 
         .contacts {
@@ -275,7 +309,7 @@
         }
 
         .contacts .label {
-            color: #aaaaaa;
+            color: #b0a0a0;
             font-size: 15px;
             display: block;
             margin-bottom: 10px;
@@ -289,43 +323,48 @@
         }
 
         .contacts a {
-            color: #dddddd;
+            color: #ddd;
             font-size: 18px;
             text-decoration: none;
             font-weight: 500;
-            transition: 0.2s;
+            transition: 0.25s;
             border-bottom: 1px solid transparent;
         }
 
         .contacts a:hover {
-            color: #ff6a00;
-            border-bottom: 1px solid #ff6a00;
+            color: #ff3b00;
+            border-bottom-color: #ff3b00;
+            text-shadow: 0 0 30px rgba(255, 59, 0, 0.1);
         }
 
         .footer {
-            margin-top: 32px;
+            margin-top: 40px;
+            border-top: 1px solid #1a0e0c;
+            padding-top: 16px;
             text-align: center;
             font-size: 13px;
-            color: #555;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            padding-top: 20px;
+            color: #3a2a2a;
+            letter-spacing: 1px;
         }
 
         .footer a {
-            color: #777;
+            color: #6a5a5a;
             text-decoration: none;
             transition: 0.2s;
         }
 
         .footer a:hover {
-            color: #aaa;
+            color: #ff3b00;
+            text-shadow: 0 0 20px rgba(255, 59, 0, 0.2);
         }
 
         @media (max-width: 600px) {
-            .glass {
-                padding: 24px 16px;
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
             }
-            h1 {
+            .content h1 {
                 font-size: 26px;
             }
             .services-grid {
@@ -342,107 +381,108 @@
 </head>
 <body>
 
-    <div class="glass">
+<div class="wrap">
+    <div class="header fade-item" style="animation-delay: 0.1s;">
+        <div class="logo">Шмурдяк <span>·</span> услуги</div>
+        <div class="nav">
+            <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank" rel="noopener noreferrer">Визитка</a>
+            <a href="https://alexunikum.github.io/faq/" target="_blank" rel="noopener noreferrer">FAQ</a>
+        </div>
+    </div>
 
-        <h1>🛠️ Услуги Шмурдяка</h1>
-        <div class="subtitle">Сайты · Вывески · Реклама · <span>Всё под ключ</span></div>
+    <div class="content">
+        <h1 class="fade-item" style="animation-delay: 0.15s;">🛠️ Услуги <span>Шмурдяка</span></h1>
+        <div class="sub fade-item" style="animation-delay: 0.2s;">Сайты · Каталоги · Генераторы · <span>Всё под ключ</span></div>
 
-        <!-- ===== СЕТКА УСЛУГ ===== -->
         <div class="services-grid">
-
-            <div class="service-card fade-item" style="animation-delay: 0.1s;">
-                <span class="service-icon">🌐</span>
-                <div class="service-name">Сайт-визитка</div>
-                <div class="service-desc">Одностраничный сайт с твоими контактами, ссылками и краткой информацией.</div>
-                <div class="service-price">от <span>5 500 ₽</span></div>
-            </div>
-
-            <div class="service-card fade-item" style="animation-delay: 0.2s;">
-                <span class="service-icon">📄</span>
-                <div class="service-name">Лендинг</div>
-                <div class="service-desc">Посадочная страница для товара, услуги или мероприятия. С секциями, кнопками и формами.</div>
-                <div class="service-price">от <span>9 000 ₽</span></div>
+            <div class="service-card fade-item" style="animation-delay: 0.25s;">
+                <span class="icon">🌐</span>
+                <div class="name">Сайт-визитка</div>
+                <div class="desc">Одностраничный сайт с твоими контактами, ссылками и краткой информацией.</div>
+                <div class="price">от <span>5 500 ₽</span></div>
             </div>
 
             <div class="service-card fade-item" style="animation-delay: 0.3s;">
-                <span class="service-icon">🗂️</span>
-                <div class="service-name">Интерактивный каталог</div>
-                <div class="service-desc">Фильтры, поиск, карточки — на чистом JS с подгрузкой через API. Для магазинов и прайсов.</div>
-                <div class="service-price">от <span>12 000 ₽</span></div>
+                <span class="icon">📄</span>
+                <div class="name">Лендинг</div>
+                <div class="desc">Посадочная страница для товара, услуги или мероприятия. С секциями, кнопками и формами.</div>
+                <div class="price">от <span>9 000 ₽</span></div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.35s;">
+                <span class="icon">🗂️</span>
+                <div class="name">Интерактивный каталог</div>
+                <div class="desc">Фильтры, поиск, карточки — на чистом JS с подгрузкой через API. Для магазинов и прайсов.</div>
+                <div class="price">от <span>12 000 ₽</span></div>
             </div>
 
             <div class="service-card fade-item" style="animation-delay: 0.4s;">
-                <span class="service-icon">🏷️</span>
-                <div class="service-name">Генератор ценников</div>
-                <div class="service-desc">Готовый инструмент для печати ценников (маленький и A4). С логотипом, штрих-кодом и страной производства.</div>
-                <div class="service-price">от <span>10 000 ₽</span></div>
+                <span class="icon">🏷️</span>
+                <div class="name">Генератор ценников</div>
+                <div class="desc">Готовый инструмент для печати ценников (маленький и A4). С логотипом, штрих-кодом и страной производства.</div>
+                <div class="price">от <span>10 000 ₽</span></div>
+            </div>
+
+            <div class="service-card fade-item" style="animation-delay: 0.45s;">
+                <span class="icon">🎯</span>
+                <div class="name">Индивидуальный заказ</div>
+                <div class="desc">Всё, что не вошло в список. Опиши задачу — я скажу, что могу сделать.</div>
+                <div class="price">по договорённости</div>
             </div>
 
             <div class="service-card fade-item" style="animation-delay: 0.5s;">
-                <span class="service-icon">🎯</span>
-                <div class="service-name">Индивидуальный заказ</div>
-                <div class="service-desc">Всё, что не вошло в список. Опиши задачу — я скажу, что могу сделать.</div>
-                <div class="service-price">по договорённости</div>
+                <span class="icon">🧩</span>
+                <div class="name">Доработка кода</div>
+                <div class="desc">Правка вёрстки, дизайна, адаптив под мобилки. Работаю только с кодом, права на который есть у заказчика.</div>
+                <div class="price">от <span>2 500 ₽</span></div>
             </div>
-
-            <div class="service-card fade-item" style="animation-delay: 0.6s;">
-                <span class="service-icon">🧩</span>
-                <div class="service-name">Доработка кода</div>
-                <div class="service-desc">Правка вёрстки, дизайна, адаптив под мобилки. Работаю только с кодом, права на который есть у заказчика.</div>
-                <div class="service-price">от <span>2 500 ₽</span></div>
-            </div>
-
         </div>
 
-        <!-- ===== ПОЧЕМУ Я ===== -->
-        <div class="section-title fade-item" style="animation-delay: 0.7s;">🔥 Почему я</div>
+        <div class="section-title fade-item" style="animation-delay: 0.55s;">🔥 Почему <span>я</span></div>
 
         <div class="why-grid">
-            <div class="why-item fade-item" style="animation-delay: 0.75s;">
+            <div class="why-item fade-item" style="animation-delay: 0.6s;">
                 <span class="emoji">⚡</span>
                 <h3>Быстро</h3>
                 <p>Работаю в своём темпе, без затягивания. Сайт-визитка может быть готова за пару часов.</p>
             </div>
-            <div class="why-item fade-item" style="animation-delay: 0.8s;">
+            <div class="why-item fade-item" style="animation-delay: 0.65s;">
                 <span class="emoji">💰</span>
                 <h3>Дёшево</h3>
                 <p>Я начинающий кодер, поэтому мои цены ниже рынка. Качество при этом не страдает.</p>
             </div>
-            <div class="why-item fade-item" style="animation-delay: 0.85s;">
+            <div class="why-item fade-item" style="animation-delay: 0.7s;">
                 <span class="emoji">🧠</span>
                 <h3>Индивидуально</h3>
                 <p>Каждый проект обсуждается лично. Нет шаблонов — только то, что нужно именно тебе.</p>
             </div>
         </div>
 
-        <!-- ===== КАК ЗАКАЗАТЬ ===== -->
-        <div class="section-title fade-item" style="animation-delay: 0.9s;">📋 Как заказать</div>
+        <div class="section-title fade-item" style="animation-delay: 0.75s;">📋 Как <span>заказать</span></div>
 
         <div class="steps">
-            <div class="step fade-item" style="animation-delay: 0.95s;">
+            <div class="step fade-item" style="animation-delay: 0.8s;">
                 <span class="num">1</span>
                 <h4>Напиши</h4>
                 <p>Опиши свою идею в Telegram или любым доступным способом на визитке.</p>
             </div>
-            <div class="step fade-item" style="animation-delay: 1s;">
+            <div class="step fade-item" style="animation-delay: 0.85s;">
                 <span class="num">2</span>
                 <h4>Обсудим</h4>
                 <p>Уточню детали, сроки, цену. Скажу что можно сделать, а что нет.</p>
             </div>
-            <div class="step fade-item" style="animation-delay: 1.05s;">
+            <div class="step fade-item" style="animation-delay: 0.9s;">
                 <span class="num">3</span>
                 <h4>Сделаю</h4>
                 <p>Разрабатываю, показываю, довожу до идеала.</p>
             </div>
         </div>
 
-        <!-- ===== CTA ===== -->
-        <div class="cta-block fade-item" style="animation-delay: 1.1s;">
+        <div class="cta-block fade-item" style="animation-delay: 0.95s;">
             <p>❓ Остались вопросы? Загляни в <a href="https://alexunikum.github.io/faq/" target="_blank" rel="noopener noreferrer">FAQ</a> — там ответы на всё.</p>
         </div>
 
-        <!-- ===== КОНТАКТЫ ===== -->
-        <div class="contacts fade-item" style="animation-delay: 1.15s;">
+        <div class="contacts fade-item" style="animation-delay: 1s;">
             <span class="label">✉️ Связаться со Шмурдяком</span>
             <div class="links">
                 <a href="https://t.me/Shprotina27" target="_blank" rel="noopener noreferrer">Telegram для заказов</a>
@@ -450,12 +490,11 @@
             </div>
         </div>
 
-        <!-- ===== ФУТЕР ===== -->
-        <div class="footer fade-item" style="animation-delay: 1.2s;">
-            <p>Сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank" rel="noopener noreferrer">Шмурдяком</a> — все работы индивидуальны</p>
+        <div class="footer fade-item" style="animation-delay: 1.05s;">
+            <p>сделано <a href="https://alexunikum.github.io/shmurdyak-main-site/" target="_blank" rel="noopener noreferrer">Шмурдяком</a> — все работы индивидуальны</p>
         </div>
-
     </div>
+</div>
 
 </body>
 </html>
